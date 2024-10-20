@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -15,7 +16,7 @@ import { AppSidebarNav } from './AppSidebarNav'
 
 import { logo } from 'src/assets/brand/logo'
 import { sygnet } from 'src/assets/brand/sygnet'
-
+import {cilChartPie} from '@coreui/icons'
 // sidebar nav config
 import navigation from '../_nav'
 
@@ -37,7 +38,8 @@ const AppSidebar = () => {
     >
       <CSidebarHeader className="border-bottom">
         <CSidebarBrand to="/">
-          {/* <CIcon customClassName="sidebar-brand-full"  height={32} /> */}
+          <CIcon customClassName="sidebar-brand-full" icon={cilChartPie} height={32} />
+            KCB LDMS
           <CIcon customClassName="sidebar-brand-narrow" icon={sygnet} height={32} />
         </CSidebarBrand>
         <CCloseButton

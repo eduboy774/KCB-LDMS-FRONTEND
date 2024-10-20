@@ -12,7 +12,8 @@ import {
   cilPencil,
   cilPuzzle,
   cilSpeedometer,
-  cilStar,
+  cilSettings,
+  cilAlarm,
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
@@ -29,31 +30,61 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'Notifications',
-    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
+    name: 'LDMS',
+    icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'Alerts',
+        name: 'Departments',
         to: '/notifications/alerts',
       },
       {
         component: CNavItem,
-        name: 'Badges',
+        name: 'Category',
         to: '/notifications/badges',
       },
       {
         component: CNavItem,
-        name: 'Modal',
+        name: 'Regional Zone',
         to: '/notifications/modals',
-      },
+      }
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Report',
+    icon: <CIcon icon={cilAlarm} customClassName="nav-icon" />,
+    items: [
       {
         component: CNavItem,
-        name: 'Toasts',
-        to: '/notifications/toasts',
+        name: 'General',
+        to: '/notifications/alerts',
       },
     ],
   }
+  ,{
+    component: CNavGroup,
+    name: 'Settings',
+    icon: <CIcon icon={cilSettings} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Departments',
+        to: '/notifications/alerts',
+      },
+      {
+        component: CNavItem,
+        name: 'Category',
+        to: '/notifications/badges',
+      },
+      {
+        component: CNavItem,
+        name: 'Regional Zone',
+        to: '/notifications/modals',
+      }
+    ],
+  },
+
 
 ]
 
