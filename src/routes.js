@@ -49,6 +49,11 @@ const Badges = React.lazy(() => import('./views/notifications/badges/Badges'))
 const Modals = React.lazy(() => import('./views/notifications/modals/Modals'))
 const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 
+// settings
+const Category = React.lazy(() => import('./views/settings/category/Category'))
+const Department = React.lazy(() => import('./views/settings/department/department'))
+const Zone = React.lazy(() => import('./views/settings/zones/zones'))
+
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 const routes = [
@@ -97,6 +102,11 @@ const routes = [
   { path: '/notifications/modals', name: 'Modals', element: Modals },
   { path: '/notifications/toasts', name: 'Toasts', element: Toasts },
   { path: '/widgets', name: 'Widgets', element: Widgets },
+  // settings
+  { path: '/settings', name: 'Settings', element: Department, exact: true },
+  { path: '/settings/department', name: 'Department', element: Department },
+  { path: '/settings/category', name: 'Category', element: Category },
+  { path: '/settings/zone', name: 'Zone', element: Zone },
 ]
 
 export default routes

@@ -36,17 +36,17 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Departments',
-        to: '/notifications/alerts',
+        to: '/settings/department',
       },
       {
         component: CNavItem,
         name: 'Category',
-        to: '/notifications/badges',
+        to: '/settings/category',
       },
       {
         component: CNavItem,
         name: 'Regional Zone',
-        to: '/notifications/modals',
+        to: '/settings/department',
       }
     ],
   },
@@ -70,17 +70,17 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Departments',
-        to: '/notifications/alerts',
+        to: '/settings/department',
       },
       {
         component: CNavItem,
         name: 'Category',
-        to: '/notifications/badges',
+        to: '/settings/category',
       },
       {
         component: CNavItem,
         name: 'Regional Zone',
-        to: '/notifications/modals',
+        to: '/settings/zone',
       }
     ],
   },

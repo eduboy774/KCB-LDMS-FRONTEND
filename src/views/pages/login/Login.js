@@ -148,6 +148,7 @@ const Login = () => {
             let  accessToken = data?.access_token ;
             let  refreshToken = data?.refresh_token;
             let  expiresIn = data?.expires_in;
+            console.log({accessToken});
 
             // Store the access token for future API requests
             localStorage.setItem('accessToken', accessToken);
