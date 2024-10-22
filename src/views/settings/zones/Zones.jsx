@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import  Layout from '../../../components/Layout/Layout'
 
 const Zones =()=>{
-  const title ='Zones'
+  const title ='List of Zones'
 
   return(
     <Layout title={title}/>

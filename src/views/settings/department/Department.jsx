@@ -4,7 +4,7 @@ import Layout from '../../../components/Layout/Layout'
 
 
 const Department = () => {
-  const title ="Department"
+  const title ="List of Department"
 
   return (
     <Layout title={title}/>
