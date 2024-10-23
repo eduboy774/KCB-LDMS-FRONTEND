@@ -4,7 +4,7 @@ import React from 'react'
 import {CCard,CCardBody,CCardHeader,CCol,CRow} from '@coreui/react'
 import CustomTable from '../../components/Layout/Table'
 
-const Layout =({title})=>{
+const Layout =({title,headers,data})=>{
    return(
     <CRow>
     <CCol xs={12}>
@@ -13,7 +13,7 @@ const Layout =({title})=>{
           <strong>{title}</strong>
         </CCardHeader>
         <CCardBody>
-        <CustomTable/>
+        <CustomTable headers={headers} data={data} />
         </CCardBody>
       </CCard>
     </CCol>

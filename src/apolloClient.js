@@ -5,8 +5,8 @@ import environment from '../env';
 const createApolloClient = () => {
 
   const token = localStorage.getItem('accessToken');
-  const refreshToken = localStorage?.getItem('refreshToken');
-  console.log(refreshToken);
+  // const refreshToken = localStorage?.getItem('refreshToken');
+  // console.log(refreshToken);
 
   const apiUrl = environment.apiUrl;
 

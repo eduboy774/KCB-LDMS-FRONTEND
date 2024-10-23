@@ -49,7 +49,7 @@ const AppHeader = () => {
           onClick={() => dispatch({ type: 'set', sidebarShow: !sidebarShow })}
           style={{ marginInlineStart: '-14px' }}
         >
-          <CIcon icon={cilMenu} size="2lg" />
+          <CIcon icon={cilMenu} size="lg" />
         </CHeaderToggler>
         <CHeaderNav className="d-none d-md-flex">
           <CNavItem>

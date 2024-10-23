@@ -1,9 +1,16 @@
+/* eslint-disable prettier/prettier */
 import React, { Suspense, useEffect } from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-
 import { CSpinner, useColorModes } from '@coreui/react'
 import './scss/style.scss'
+
+//Start ApolloProvider
+
+import { ApolloProvider } from '@apollo/client';
+import createApolloClient from './apolloClient';
+
+// End  ApolloProvider
 
 // Containers
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
@@ -15,7 +22,12 @@ const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
 const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
 
 const App = () => {
+
+  // creating instance of appollo
+  const client = createApolloClient()
   const { isColorModeSet, setColorMode } = useColorModes('coreui-free-react-admin-template-theme')
+
+
   const storedTheme = useSelector((state) => state.theme)
 
   useEffect(() => {
@@ -33,6 +45,7 @@ const App = () => {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
+    <ApolloProvider client={client}>
     <HashRouter>
       <Suspense
         fallback={
@@ -50,6 +63,7 @@ const App = () => {
         </Routes>
       </Suspense>
     </HashRouter>
+    </ApolloProvider>
   )
 }
 

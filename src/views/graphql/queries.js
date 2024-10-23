@@ -67,6 +67,7 @@ query GetAllKcbCategories($filtering: KcbCategoryFilteringInputObject){
 getAllKcbCategories(filtering: $filtering){
    data{
     id
+    isActive
     uuid
     categoryName
   }
