@@ -22,7 +22,7 @@ const Category = () => {
     { label: 'Id', key:'id' ,className: 'bg-body-tertiary text-center' },
     { label: 'Category Name', key:'categoryName', className: 'bg-body-tertiary' },
     { label: 'Active', key:'isActive',className: 'bg-body-tertiary',formatter:(value) => (value ? 'YES' :'NO') },
-    { label: 'Actions', key:'Action', className:'' },
+    { label: 'Actions', key:'Action', className:''  },
   ];
 
   const { loading, data, error } = useKcbCategories(variables, valuetobeChecked);

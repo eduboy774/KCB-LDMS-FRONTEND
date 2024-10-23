@@ -9,10 +9,12 @@ import {
   CTableHead,
   CTableHeaderCell,
   CTableRow,
-} from '@coreui/react'
 
+} from '@coreui/react'
+import NoDataFound from '../../components/Layout/NoData'
 
 const CustomTable =({headers,data})=>{
+
 
   return (
     <CTable align="middle" className="mb-0 border" bordered borderColor="primary" hover responsive>
@@ -25,7 +27,7 @@ const CustomTable =({headers,data})=>{
           ))}
         </CTableRow>
       </CTableHead>
-      <CTableBody>
+     {data &&(<CTableBody>
         {data?.map((item, rowIndex) => (
           <CTableRow key={rowIndex}>
             {headers.map((header, colIndex) => {
@@ -41,7 +43,10 @@ const CustomTable =({headers,data})=>{
             })}
           </CTableRow>
         ))}
-      </CTableBody>
+      </CTableBody>)}
+      {(data === undefined) &&(
+         <NoDataFound/>
+        )}
     </CTable>
   );
 };
