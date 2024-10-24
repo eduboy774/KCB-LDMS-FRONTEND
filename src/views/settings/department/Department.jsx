@@ -24,7 +24,12 @@ const Department = () => {
     { label: 'Department Code', key:'departmentCode', className: 'bg-body-tertiary' },
     { label: 'Department Name', key:'departmentDescription', className: 'bg-body-tertiary' },
     { label: 'Active', key:'isActive',className: 'bg-body-tertiary',formatter:(value) => (value ? 'YES' :'NO') },
-    { label: 'Actions', key:'Action', className:''  },
+
+  ];
+
+  const actions = [
+    { label: 'Edit', onClick: (item) => alert(`Edit ${item.categoryName}`) },
+    { label: 'Delete', onClick: (item) => alert(`Delete ${item.categoryName}`) },
   ];
 
   const { loading, data, error } = useKcbDepartment(variables, valuetobeChecked);
@@ -39,7 +44,13 @@ const Department = () => {
 
 
   return (
-    <Layout title={title} headers={headers} data ={getKcbDepartment} />
+    <Layout
+
+    title={title}
+    headers={headers}
+    data ={getKcbDepartment}
+    actions={actions}
+    />
   )
 }
 

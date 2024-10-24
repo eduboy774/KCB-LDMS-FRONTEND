@@ -21,10 +21,14 @@ const Zones =()=>{
   const headers = [
     { label: 'Id', key:'id' ,className: 'bg-body-tertiary text-center' },
     { label: 'Zone Name', key:'zoneName', className: 'bg-body-tertiary' },
-    { label: 'Zone Code', key:'zoneCode', className: 'bg-body-tertiary' },
+    { label: 'Zone Code', key:'zoneCode', className: 'bg-body-tertiary',formatter:(value)=>(value.replaceAll('_',' ')) },
     { label: 'Zone Name', key:'zoneDescription', className: 'bg-body-tertiary' },
     { label: 'Active', key:'isActive',className: 'bg-body-tertiary',formatter:(value) => (value ? 'YES' :'NO') },
-    { label: 'Actions', key:'Action', className:''  },
+  ];
+
+  const actions = [
+    { label: 'Edit', onClick: (item) => alert(`Edit ${item.categoryName}`) },
+    { label: 'Delete', onClick: (item) => alert(`Delete ${item.categoryName}`) },
   ];
 
   const { loading, data, error } = useKcbZones(variables, valuetobeChecked);
@@ -39,7 +43,13 @@ const Zones =()=>{
 
 
   return (
-    <Layout title={title} headers={headers} data ={getKcbZones} />
+    <Layout
+    title={title}
+    headers={headers}
+    data ={getKcbZones}
+    actions={actions}
+
+    />
   )
 }
 

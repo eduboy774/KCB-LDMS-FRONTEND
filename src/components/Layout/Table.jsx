@@ -9,15 +9,30 @@ import {
   CTableHead,
   CTableHeaderCell,
   CTableRow,
+  CDropdown,
+  CDropdownToggle,
+  CDropdownMenu,
+  CDropdownItem,
+} from '@coreui/react';
+import CIcon from '@coreui/icons-react'
+import NoDataFound from '../../components/Layout/NoData';
+import { cilOptions } from '@coreui/icons'; // Adjust the import path as necessary
 
-} from '@coreui/react'
-import NoDataFound from '../../components/Layout/NoData'
+const CustomTable = ({ headers, data, actions }) => {
+  console.log({actions});
 
-const CustomTable =({headers,data})=>{
+  const [openOptions, setOpenOptions] = React.useState({});
+  console.log(openOptions);
 
+  const toggleOptions = (index) => {
+    setOpenOptions((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
+  };
 
   return (
-    <CTable align="middle" className="mb-0 border" bordered borderColor="primary" hover responsive>
+    <CTable align="middle" className="mb-0 border" bordered borderColor="dark" hover responsive>
       <CTableHead className="text-nowrap">
         <CTableRow>
           {headers?.map((header, index) => (
@@ -25,30 +40,55 @@ const CustomTable =({headers,data})=>{
               {header.label}
             </CTableHeaderCell>
           ))}
+          {actions && <CTableHeaderCell className="bg-body-tertiary text-center">Actions</CTableHeaderCell>}
         </CTableRow>
       </CTableHead>
-     {data &&(<CTableBody>
-        {data?.map((item, rowIndex) => (
-          <CTableRow key={rowIndex}>
-            {headers.map((header, colIndex) => {
-              let cellValue = item[header.key];
-              if (header.formatter) {
-                cellValue = header.formatter(cellValue);
-              }
-              return (
-                <CTableDataCell className="text-center" key={colIndex}>
-                  {cellValue != null ? cellValue : ''}
+      {data && (
+        <CTableBody>
+          {data?.map((item, rowIndex) => (
+            <CTableRow key={rowIndex}>
+              {headers.map((header, colIndex) => {
+                let cellValue = item[header.key];
+                if (header.formatter) {
+                  cellValue = header.formatter(cellValue);
+                }
+                return (
+                  <CTableDataCell className="text-center" key={colIndex}>
+                    {cellValue != null ? cellValue : ''}
+                  </CTableDataCell>
+                );
+              })}
+              {actions && (
+                <CTableDataCell className="text-center">
+                  <CIcon icon={cilOptions} onClick={() => toggleOptions(rowIndex)} style={{ cursor: 'pointer' }} />
+                  {openOptions[rowIndex] && (
+                    <CDropdown>
+                      <CDropdownToggle caret={false} />
+                      <CDropdownMenu>
+                        {actions.map((action, actionIndex) => (
+                          <CDropdownItem
+                          className="d-flex align-items-center"
+                          as="button"
+                          type="button"
+                          key={actionIndex}
+                          onClick={() => action.onClick(item)}
+                          >
+                            {action.label}
+                          </CDropdownItem>
+                        ))}
+                      </CDropdownMenu>
+                    </CDropdown>
+                  )}
+
                 </CTableDataCell>
-              );
-            })}
-          </CTableRow>
-        ))}
-      </CTableBody>)}
-      {(data === undefined) &&(
-         <NoDataFound/>
-        )}
+              )}
+            </CTableRow>
+          ))}
+        </CTableBody>
+      )}
+      {data === undefined && <NoDataFound />}
     </CTable>
   );
 };
 
-export default CustomTable
+export default CustomTable;
