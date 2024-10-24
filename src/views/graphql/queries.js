@@ -47,6 +47,7 @@ export const GET_KCB_DEPARTMENT =gql
     getAllKcbDepartments(filtering: $filtering){
       data{
         id
+        isActive
         uuid
         departmentName
         departmentCode
@@ -86,6 +87,7 @@ query GetAllKcbRegionalZone($filtering: KcbRegionalZonalFilteringInputObject){
       getAllKcbRegionalZone(filtering: $filtering){
      data{
       id
+      isActive
       uuid
       zoneName
       zoneCode

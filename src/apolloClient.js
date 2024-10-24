@@ -4,11 +4,11 @@ import environment from '../env';
 
 const createApolloClient = () => {
 
+  const apiUrl = environment.apiUrl;
   const token = localStorage.getItem('accessToken');
   // const refreshToken = localStorage?.getItem('refreshToken');
   // console.log(refreshToken);
 
-  const apiUrl = environment.apiUrl;
 
   const httpLink = createHttpLink({
     uri: apiUrl,

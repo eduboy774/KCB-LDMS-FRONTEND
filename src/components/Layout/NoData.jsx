@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from "react";
-import CAlert from '@coreui/react'
+import {CAlert} from '@coreui/react'
 
 const NoDataFound =()=>{
  return(
